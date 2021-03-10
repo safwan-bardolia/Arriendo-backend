@@ -1,10 +1,8 @@
 package com.Arriendo.entity;
 
-import java.util.Arrays;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.Lob;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
@@ -27,30 +25,27 @@ public class Hosting {
 
 	@Transient
     private MultipartFile aadharFile;
-    private String aadharFileName;
-    private String aadharFileType;
-    @Lob
-    private byte[] aadharFileData;
+    private String aadharFileUri;
 
     @Transient
     private MultipartFile residentialFile;
-    private String residentialFileName;
-    private String residentialFileType;
-    @Lob
-    private byte[] residentialFileData;
+    private String residentialFileUri;
 
     @Transient
     private MultipartFile parkingPhoto;
-    private String parkingPhotoName;
-    private String parkingPhotoType;
-    @Lob
-    private byte[] parkingPhotoData;
-    
-	public String getUid() {
+    private String parkingPhotoUri;
+	
+    public String getUid() {
 		return uid;
 	}
 	public void setUid(String uid) {
 		this.uid = uid;
+	}
+	public String getUserProfileUrl() {
+		return userProfileUrl;
+	}
+	public void setUserProfileUrl(String userProfileUrl) {
+		this.userProfileUrl = userProfileUrl;
 	}
 	public String getFullName() {
 		return fullName;
@@ -88,23 +83,11 @@ public class Hosting {
 	public void setAadharFile(MultipartFile aadharFile) {
 		this.aadharFile = aadharFile;
 	}
-	public String getAadharFileName() {
-		return aadharFileName;
+	public String getAadharFileUri() {
+		return aadharFileUri;
 	}
-	public void setAadharFileName(String aadharFileName) {
-		this.aadharFileName = aadharFileName;
-	}
-	public String getAadharFileType() {
-		return aadharFileType;
-	}
-	public void setAadharFileType(String aadharFileType) {
-		this.aadharFileType = aadharFileType;
-	}
-	public byte[] getAadharFileData() {
-		return aadharFileData;
-	}
-	public void setAadharFileData(byte[] aadharFileData) {
-		this.aadharFileData = aadharFileData;
+	public void setAadharFileUri(String aadharFileUri) {
+		this.aadharFileUri = aadharFileUri;
 	}
 	public MultipartFile getResidentialFile() {
 		return residentialFile;
@@ -112,23 +95,11 @@ public class Hosting {
 	public void setResidentialFile(MultipartFile residentialFile) {
 		this.residentialFile = residentialFile;
 	}
-	public String getResidentialFileName() {
-		return residentialFileName;
+	public String getResidentialFileUri() {
+		return residentialFileUri;
 	}
-	public void setResidentialFileName(String residentialFileName) {
-		this.residentialFileName = residentialFileName;
-	}
-	public String getResidentialFileType() {
-		return residentialFileType;
-	}
-	public void setResidentialFileType(String residentialFileType) {
-		this.residentialFileType = residentialFileType;
-	}
-	public byte[] getResidentialFileData() {
-		return residentialFileData;
-	}
-	public void setResidentialFileData(byte[] residentialFileData) {
-		this.residentialFileData = residentialFileData;
+	public void setResidentialFileUri(String residentialFileUri) {
+		this.residentialFileUri = residentialFileUri;
 	}
 	public MultipartFile getParkingPhoto() {
 		return parkingPhoto;
@@ -136,43 +107,20 @@ public class Hosting {
 	public void setParkingPhoto(MultipartFile parkingPhoto) {
 		this.parkingPhoto = parkingPhoto;
 	}
-	public String getParkingPhotoName() {
-		return parkingPhotoName;
+	public String getParkingPhotoUri() {
+		return parkingPhotoUri;
 	}
-	public void setParkingPhotoName(String parkingPhotoName) {
-		this.parkingPhotoName = parkingPhotoName;
-	}
-	public String getParkingPhotoType() {
-		return parkingPhotoType;
-	}
-	public void setParkingPhotoType(String parkingPhotoType) {
-		this.parkingPhotoType = parkingPhotoType;
-	}
-	public byte[] getParkingPhotoData() {
-		return parkingPhotoData;
-	}
-	public void setParkingPhotoData(byte[] parkingPhotoData) {
-		this.parkingPhotoData = parkingPhotoData;
-	}
-	public String getUserProfileUrl() {
-		return userProfileUrl;
-	}
-	public void setUserProfileUrl(String userProfileUrl) {
-		this.userProfileUrl = userProfileUrl;
+	public void setParkingPhotoUri(String parkingPhotoUri) {
+		this.parkingPhotoUri = parkingPhotoUri;
 	}
 
 	@Override
 	public String toString() {
 		return "Hosting [uid=" + uid + ", userProfileUrl=" + userProfileUrl + ", fullName=" + fullName + ", mobile="
 				+ mobile + ", description=" + description + ", totalVehicles=" + totalVehicles + ", fees=" + fees
-				+ ", aadharFile=" + aadharFile + ", aadharFileName=" + aadharFileName + ", aadharFileType="
-				+ aadharFileType + ", aadharFileData=" + Arrays.toString(aadharFileData) + ", residentialFile="
-				+ residentialFile + ", residentialFileName=" + residentialFileName + ", residentialFileType="
-				+ residentialFileType + ", residentialFileData=" + Arrays.toString(residentialFileData)
-				+ ", parkingPhoto=" + parkingPhoto + ", parkingPhotoName=" + parkingPhotoName + ", parkingPhotoType="
-				+ parkingPhotoType + ", parkingPhotoData=" + Arrays.toString(parkingPhotoData) + "]";
+				+ ", aadharFile=" + aadharFile + ", aadharFileUri=" + aadharFileUri + ", residentialFile="
+				+ residentialFile + ", residentialFileUri=" + residentialFileUri + ", parkingPhoto=" + parkingPhoto
+				+ ", parkingPhotoUri=" + parkingPhotoUri + "]";
 	}
-    
-    
-
+	
 }
