@@ -63,13 +63,16 @@ public class HostingController {
 			service.save(hosting);
 		}
 		
+		// send registration mail
+		service.sendRegistrationEmail(hosting.getEmail(), hosting.getFullName());
+		
 		return ResponseEntity.ok().build();
 	}
 	
 	@PutMapping(value = "/hostings", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
 	public ResponseEntity updateHosting(@ModelAttribute Hosting hosting) {
 		
-		service.save(hosting);
+		service.update(hosting);
 		return ResponseEntity.ok().build();
 	}
 			

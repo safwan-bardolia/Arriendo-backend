@@ -9,9 +9,13 @@ public interface HostingService {
 
 	public void save(Hosting hosting);
 	
+	public void update(Hosting hosting);
+	
 	public List<Hosting> findAll();
 	
 	public Optional<Hosting> findById(String uid);
 	
 	public void delete(String uid);
+	
+	public void sendRegistrationEmail(String email, String user);
 }

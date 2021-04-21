@@ -14,6 +14,7 @@ public class Hosting {
 
 	@Id
 	private String uid;
+	private String email;
 	private String userProfileUrl;
 	private String fullName;
 	private String mobile;
@@ -113,14 +114,20 @@ public class Hosting {
 	public void setParkingPhotoUri(String parkingPhotoUri) {
 		this.parkingPhotoUri = parkingPhotoUri;
 	}
-
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	
 	@Override
 	public String toString() {
-		return "Hosting [uid=" + uid + ", userProfileUrl=" + userProfileUrl + ", fullName=" + fullName + ", mobile="
-				+ mobile + ", description=" + description + ", totalVehicles=" + totalVehicles + ", fees=" + fees
-				+ ", aadharFile=" + aadharFile + ", aadharFileUri=" + aadharFileUri + ", residentialFile="
-				+ residentialFile + ", residentialFileUri=" + residentialFileUri + ", parkingPhoto=" + parkingPhoto
-				+ ", parkingPhotoUri=" + parkingPhotoUri + "]";
+		return "Hosting [uid=" + uid + ", email=" + email + ", userProfileUrl=" + userProfileUrl + ", fullName="
+				+ fullName + ", mobile=" + mobile + ", description=" + description + ", totalVehicles=" + totalVehicles
+				+ ", fees=" + fees + ", aadharFile=" + aadharFile + ", aadharFileUri=" + aadharFileUri
+				+ ", residentialFile=" + residentialFile + ", residentialFileUri=" + residentialFileUri
+				+ ", parkingPhoto=" + parkingPhoto + ", parkingPhotoUri=" + parkingPhotoUri + "]";
 	}
 	
 }
