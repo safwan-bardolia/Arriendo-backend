@@ -1,6 +1,6 @@
 package com.Arriendo.entity;
 
-public class HostingErrorResponce {
+public class ErrorResponce {
 
 	private int status;
 	private String message;

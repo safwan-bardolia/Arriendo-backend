@@ -17,5 +17,5 @@ public interface HostingService {
 	
 	public void delete(String uid);
 	
-	public void sendRegistrationEmail(String email, String user);
+	public void sendRegistrationEmail(String email, String userName);
 }

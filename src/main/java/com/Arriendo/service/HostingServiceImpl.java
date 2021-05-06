@@ -138,9 +138,9 @@ public class HostingServiceImpl implements HostingService {
 	}
 
 	@Override
-	public void sendRegistrationEmail(String email, String user) {	
+	public void sendRegistrationEmail(String email, String userName) {	
 				
-		String mailtxt = "Dear "+user+"\n\n"+text;
+		String mailtxt = "Dear "+userName+"\n\n"+text;
 		
 		SimpleMailMessage message = new SimpleMailMessage();
 		message.setTo(email);

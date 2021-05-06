@@ -49,7 +49,7 @@ public class HostingController {
 			throw new HostingNotFoundException("record not found");
 		}
 		
-		return service.findById(uid).get();
+		return result.get();
 	}
 	
 	@PostMapping(value = "/hostings", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
