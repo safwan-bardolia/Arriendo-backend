@@ -19,6 +19,10 @@ public class Hosting {
 	private String fullName;
 	private String mobile;
 	private String description;
+	private String country;
+	private String state;
+	private String city;
+	private String address;
 	private int totalVehicles;
 	private int fees;
 	
@@ -120,14 +124,48 @@ public class Hosting {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+	public String getCountry() {
+		return country;
+	}
+	public void setCountry(String country) {
+		this.country = country;
+	}
+	public String getState() {
+		return state;
+	}
+	public void setState(String state) {
+		this.state = state;
+	}
+	public String getCity() {
+		return city;
+	}
+	public void setCity(String city) {
+		this.city = city;
+	}
+	public String getAddress() {
+		return address;
+	}
+	public void setAddress(String address) {
+		this.address = address;
+	}
 	
 	@Override
 	public String toString() {
 		return "Hosting [uid=" + uid + ", email=" + email + ", userProfileUrl=" + userProfileUrl + ", fullName="
-				+ fullName + ", mobile=" + mobile + ", description=" + description + ", totalVehicles=" + totalVehicles
-				+ ", fees=" + fees + ", aadharFile=" + aadharFile + ", aadharFileUri=" + aadharFileUri
-				+ ", residentialFile=" + residentialFile + ", residentialFileUri=" + residentialFileUri
-				+ ", parkingPhoto=" + parkingPhoto + ", parkingPhotoUri=" + parkingPhotoUri + "]";
+				+ fullName + ", mobile=" + mobile + ", description=" + description + ", country=" + country + ", state="
+				+ state + ", city=" + city + ", address=" + address + ", totalVehicles=" + totalVehicles + ", fees="
+				+ fees + ", aadharFile=" + aadharFile + ", aadharFileUri=" + aadharFileUri + ", residentialFile="
+				+ residentialFile + ", residentialFileUri=" + residentialFileUri + ", parkingPhoto=" + parkingPhoto
+				+ ", parkingPhotoUri=" + parkingPhotoUri + ", getUid()=" + getUid() + ", getUserProfileUrl()="
+				+ getUserProfileUrl() + ", getFullName()=" + getFullName() + ", getMobile()=" + getMobile()
+				+ ", getDescription()=" + getDescription() + ", getTotalVehicles()=" + getTotalVehicles()
+				+ ", getFees()=" + getFees() + ", getAadharFile()=" + getAadharFile() + ", getAadharFileUri()="
+				+ getAadharFileUri() + ", getResidentialFile()=" + getResidentialFile() + ", getResidentialFileUri()="
+				+ getResidentialFileUri() + ", getParkingPhoto()=" + getParkingPhoto() + ", getParkingPhotoUri()="
+				+ getParkingPhotoUri() + ", getEmail()=" + getEmail() + ", getCountry()=" + getCountry()
+				+ ", getState()=" + getState() + ", getCity()=" + getCity() + ", getAddress()=" + getAddress()
+				+ ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + ", toString()=" + super.toString()
+				+ "]";
 	}
 	
 }
