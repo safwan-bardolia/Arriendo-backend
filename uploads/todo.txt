@@ -1,0 +1,54 @@
+.add SMTP 										XXXXXXXXXX
+
+
+.create api for hostingLocation
+
+
+.save hosting location into db (table is 'mapLocation')					XXXXXXXXXX
+
+
+.depending on user location fetch the data(nearby location) from the db.		XXXXXXXXXX		
+  'join' the table (Hosting & 'mapLocation') & get all the data
+
+
+.display all the location in map(using 'mapLocation' data) &				XXXXXXXXXX
+  in marker display some 'Hosting' data
+
+
+.when user click on any of the marker or sidebar-listing-record then we pass all the 'Hosting' data to <Booking/>	XXXXXXXXXXXXXXXXXXX
+
+
+.in <Booking/> we get the user info(licence, vehicle etc)
+
+
+.& send this info to the Host for acknowledgement
+
+
+.if Host acknowledge it then give direction to destination
+
+.when driver reach location then again verify its document
+
+        .display accept() & reject() one more time in my_hosting_client
+
+.and during checkout() make the payment
+
+
+
+
+*******************************at last*********************************************
+
+.verify host within 24 hour using 'verification' field
+
+  in hosting table add additional field "verification=false"
+  if(verification=false) {
+	dont display in nearbyLocation
+  } else {
+	display in nearbyLocation
+  }
+
+  Admin will verify hosting & 
+  if(host is verify) {
+	verification=true
+  } else {
+	delete hosting
+  }
