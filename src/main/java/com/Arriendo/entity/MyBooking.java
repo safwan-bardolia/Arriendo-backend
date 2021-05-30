@@ -31,6 +31,9 @@ public class MyBooking {
 	private String host_uid;
 	
     // ********* for files ********
+	@Transient
+    private MultipartFile aadharFile;
+    private String aadharFileUri;
 
     @Transient
     private MultipartFile licensePhoto;
@@ -39,6 +42,20 @@ public class MyBooking {
     @Transient
     private MultipartFile rcPhoto;
     private String rcPhotoUri;
+    
+    
+	public MultipartFile getAadharFile() {
+		return aadharFile;
+	}
+	public void setAadharFile(MultipartFile aadharFile) {
+		this.aadharFile = aadharFile;
+	}
+	public String getAadharFileUri() {
+		return aadharFileUri;
+	}
+	public void setAadharFileUri(String aadharFileUri) {
+		this.aadharFileUri = aadharFileUri;
+	}
 	public String getC_uid() {
 		return c_uid;
 	}

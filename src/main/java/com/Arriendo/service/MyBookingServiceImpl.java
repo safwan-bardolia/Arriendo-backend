@@ -28,6 +28,7 @@ public class MyBookingServiceImpl implements MyBookingService {
 	@Override
 	public void save(MyBooking myBooking) {
 		try {
+			myBooking.setAadharFileUri(saveFileInDirectory(myBooking.getAadharFile().getOriginalFilename(), myBooking.getAadharFile().getBytes()));
 			myBooking.setLicensePhotoUri(saveFileInDirectory(myBooking.getLicensePhoto().getOriginalFilename(), myBooking.getLicensePhoto().getBytes()));
 			myBooking.setRcPhotoUri(saveFileInDirectory(myBooking.getRcPhoto().getOriginalFilename(), myBooking.getRcPhoto().getBytes()));
 			
@@ -48,6 +49,7 @@ public class MyBookingServiceImpl implements MyBookingService {
 		// 1st fetch the record in order to delete file from directory		
 		MyBooking myBooking = repository.findById(uid).get();
 		
+		deleteFileFromDirectory(myBooking.getAadharFileUri());
 		deleteFileFromDirectory(myBooking.getLicensePhotoUri());
 		deleteFileFromDirectory(myBooking.getRcPhotoUri());
 		

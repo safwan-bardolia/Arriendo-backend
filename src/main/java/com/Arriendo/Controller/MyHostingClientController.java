@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.Arriendo.entity.MyHostingClient;
+import com.Arriendo.exception.MyHostingClientNotFoundException;
 import com.Arriendo.service.MyHostingClientService;
 
 @CrossOrigin(value = {"*"})
@@ -26,7 +27,11 @@ public class MyHostingClientController {
 	// find all the record of particular host 	
 	@GetMapping("/myhostingclients/{uid}")
 	public List<MyHostingClient> findAllRecordOfParticularHost(@PathVariable String uid) {
-		return service.searchByUidStartsWith(uid);
+		List<MyHostingClient> clients = service.searchByUidStartsWith(uid);
+		if(clients.size()==0) {
+			throw new MyHostingClientNotFoundException("client not found");
+		}
+		return clients;
 	}
 	
 	@PostMapping("/myhostingclients")

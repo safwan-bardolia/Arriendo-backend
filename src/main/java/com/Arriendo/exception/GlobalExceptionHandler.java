@@ -25,6 +25,19 @@ public class GlobalExceptionHandler {
 		return new ResponseEntity<ErrorResponce>(errorResponce, HttpStatus.NOT_FOUND);
 	}
 
+	// exception handler for  MyBookingNotFoundException	
+	@ExceptionHandler
+	public ResponseEntity<ErrorResponce> handleMyBookingNotFoundException(MyBookingNotFoundException exception) {
+		// create custome error responce
+		ErrorResponce errorResponce = new ErrorResponce();
+		errorResponce.setMessage(exception.getMessage());
+		errorResponce.setStatus(HttpStatus.NOT_FOUND.value());
+		errorResponce.setTimeStamp(System.currentTimeMillis());
+		
+		// return responseEntity
+		return new ResponseEntity<ErrorResponce>(errorResponce, HttpStatus.NOT_FOUND);
+	}
+
 	// exception handler for  HostingLocationNotFoundException	
 	@ExceptionHandler
 	public ResponseEntity<ErrorResponce> handleHostingLocationNotFoundException(HostingLocationNotFoundException exception) {
@@ -37,6 +50,20 @@ public class GlobalExceptionHandler {
 		// return responseEntity
 		return new ResponseEntity<ErrorResponce>(errorResponce, HttpStatus.NOT_FOUND);
 	}
+
+	// exception handler for  MyHostingClientNotFoundException	
+	@ExceptionHandler
+	public ResponseEntity<ErrorResponce> handleMyHostingClientNotFoundException(MyHostingClientNotFoundException exception) {
+		// create custome error responce
+		ErrorResponce errorResponce = new ErrorResponce();
+		errorResponce.setMessage(exception.getMessage());
+		errorResponce.setStatus(HttpStatus.NOT_FOUND.value());
+		errorResponce.setTimeStamp(System.currentTimeMillis());
+		
+		// return responseEntity
+		return new ResponseEntity<ErrorResponce>(errorResponce, HttpStatus.NOT_FOUND);
+	}
+
 	
 	// add an exception handler for any other exception	
 	@ExceptionHandler
