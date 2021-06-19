@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -75,6 +76,21 @@ public class HostingController {
 		service.update(hosting);
 		return ResponseEntity.ok().build();
 	}
+	
+	// for updating totalVehicles prop	
+	@PatchMapping("/hostings")
+	public ResponseEntity updateVehicleCount(@ModelAttribute Hosting hosting) {
+		
+		// first fetch the record		
+		Hosting host = service.findById(hosting.getUid()).get();
+		
+		// update the require property
+		host.setTotalVehicles(hosting.getTotalVehicles());
+		
+		service.updateVehicleCount(host);
+		
+		return ResponseEntity.ok().build();
+	}
 			
 	@DeleteMapping("/hostings/{uid}")
 	public String deleteById(@PathVariable String uid) {
@@ -84,4 +100,11 @@ public class HostingController {
 		return "deleted record with uid - "+ uid;
 	}
 		
+	@GetMapping("/hostings/{hostMail}/{clientMail}/{fullName}/{mobile}")
+	public ResponseEntity generateOtp(@PathVariable String hostMail, @PathVariable String clientMail, @PathVariable String fullName, @PathVariable String mobile) {
+	
+		service.generateOtp(hostMail, clientMail, fullName, mobile);
+		
+		return ResponseEntity.ok().build();
+	}
 }

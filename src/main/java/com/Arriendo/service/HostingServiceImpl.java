@@ -8,6 +8,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
 import java.util.Optional;
+import java.util.Random;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -36,6 +37,15 @@ public class HostingServiceImpl implements HostingService {
 
 	@Value("${msg.registration.text}")
 	private String text;
+	
+	@Value("${msg.otp.otpSubject}")
+	private String otpSubject;
+	
+	@Value("${msg.otp.clientText}")
+	private String clientText;
+	
+	@Value("${msg.otp.hostText}")
+	private String hostText;
 	
 	private static final Logger logger = LoggerFactory.getLogger(HostingServiceImpl.class);
 	
@@ -150,5 +160,38 @@ public class HostingServiceImpl implements HostingService {
 		logger.info(String.format("Sending mail to '%s' .",email));
 		javaMailSender.send(message);
 		logger.info(String.format("Mail successfully send to '%s' .",email));
+	}
+
+	@Override
+	public void updateVehicleCount(Hosting hosting) {
+		repository.save(hosting);
+	}
+
+	@Override
+	public void generateOtp(String hostMail, String clientMail, String fullName, String mobile) {
+		int otp = new Random().nextInt(900000)+100000;
+		
+		String hostMailText = hostText+"\n\notp: "+otp+"\n\nclient: "+fullName+"\nmobile: "+mobile;
+		String clientMailText = clientText+"\n\notp: "+otp;
+		
+		SimpleMailMessage mail1 = new SimpleMailMessage();
+		SimpleMailMessage mail2 = new SimpleMailMessage();
+		
+		mail1.setTo(hostMail);
+		mail2.setTo(clientMail);
+		
+		mail1.setSubject(otpSubject);
+		mail2.setSubject(otpSubject);
+		
+		mail1.setText(hostMailText);
+		mail2.setText(clientMailText);
+		
+		logger.info(String.format("Sending mail to host '%s' .",hostMail));
+		javaMailSender.send(mail1);
+		logger.info(String.format("Mail successfully send to host '%s' .",hostMail));
+		
+		logger.info(String.format("Sending mail to client '%s' .",clientMail));
+		javaMailSender.send(mail2);
+		logger.info(String.format("Mail successfully send to client '%s' .",clientMail));
 	}
 }

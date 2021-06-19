@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -54,6 +55,21 @@ public class MyBookingController {
 			service.save(myBooking);
 		}
 
+		return ResponseEntity.ok().build();
+	}
+	
+	// for updating confirmation property
+	@PatchMapping("/mybookings")
+	public ResponseEntity updateConfirmation(@ModelAttribute MyBooking myBooking) {
+		//first fetch the record
+		MyBooking booking = service.findById(myBooking.getC_uid()).get();
+		
+		//update the required property
+		booking.setConfirmation(myBooking.getConfirmation());
+		booking.setFinal_confirmation(myBooking.getFinal_confirmation());
+		
+		service.updateConfirmation(booking);
+		
 		return ResponseEntity.ok().build();
 	}
 	

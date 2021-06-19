@@ -90,4 +90,8 @@ public class MyBookingServiceImpl implements MyBookingService {
 				
 	}
 
+	@Override
+	public void updateConfirmation(MyBooking myBooking) {
+		repository.save(myBooking);
+	}
 }
