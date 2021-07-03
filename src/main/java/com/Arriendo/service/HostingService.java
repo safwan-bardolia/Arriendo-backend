@@ -15,6 +15,8 @@ public interface HostingService {
 	
 	public void updateVehicleCount(Hosting hosting);
 	
+	public void updateVerification(Hosting hosting);
+	
 	public List<Hosting> findAll();
 	
 	public Optional<Hosting> findById(String uid);

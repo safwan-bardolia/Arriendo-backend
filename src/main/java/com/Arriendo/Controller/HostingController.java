@@ -91,6 +91,20 @@ public class HostingController {
 		
 		return ResponseEntity.ok().build();
 	}
+	
+	// for updating verification prop
+	@PatchMapping("/hostverification")
+	public ResponseEntity updateVerification(@ModelAttribute Hosting hosting) {
+		// first fetch the record		
+		Hosting host = service.findById(hosting.getUid()).get();
+		
+		// update the require property
+		host.setVerification(hosting.getVerification());
+		
+		service.updateVerification(host);
+
+		return ResponseEntity.ok().build();
+	}
 			
 	@DeleteMapping("/hostings/{uid}")
 	public String deleteById(@PathVariable String uid) {

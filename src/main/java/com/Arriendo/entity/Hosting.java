@@ -23,6 +23,7 @@ public class Hosting {
 	private String state;
 	private String city;
 	private String address;
+	private String verification="false";
 	private int totalVehicles;
 	private int fees;
 	
@@ -148,24 +149,21 @@ public class Hosting {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	
+	public String getVerification() {
+		return verification;
+	}
+	public void setVerification(String verification) {
+		this.verification = verification;
+	}
 	@Override
 	public String toString() {
 		return "Hosting [uid=" + uid + ", email=" + email + ", userProfileUrl=" + userProfileUrl + ", fullName="
 				+ fullName + ", mobile=" + mobile + ", description=" + description + ", country=" + country + ", state="
-				+ state + ", city=" + city + ", address=" + address + ", totalVehicles=" + totalVehicles + ", fees="
-				+ fees + ", aadharFile=" + aadharFile + ", aadharFileUri=" + aadharFileUri + ", residentialFile="
-				+ residentialFile + ", residentialFileUri=" + residentialFileUri + ", parkingPhoto=" + parkingPhoto
-				+ ", parkingPhotoUri=" + parkingPhotoUri + ", getUid()=" + getUid() + ", getUserProfileUrl()="
-				+ getUserProfileUrl() + ", getFullName()=" + getFullName() + ", getMobile()=" + getMobile()
-				+ ", getDescription()=" + getDescription() + ", getTotalVehicles()=" + getTotalVehicles()
-				+ ", getFees()=" + getFees() + ", getAadharFile()=" + getAadharFile() + ", getAadharFileUri()="
-				+ getAadharFileUri() + ", getResidentialFile()=" + getResidentialFile() + ", getResidentialFileUri()="
-				+ getResidentialFileUri() + ", getParkingPhoto()=" + getParkingPhoto() + ", getParkingPhotoUri()="
-				+ getParkingPhotoUri() + ", getEmail()=" + getEmail() + ", getCountry()=" + getCountry()
-				+ ", getState()=" + getState() + ", getCity()=" + getCity() + ", getAddress()=" + getAddress()
-				+ ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + ", toString()=" + super.toString()
-				+ "]";
+				+ state + ", city=" + city + ", address=" + address + ", verification=" + verification
+				+ ", totalVehicles=" + totalVehicles + ", fees=" + fees + ", aadharFile=" + aadharFile
+				+ ", aadharFileUri=" + aadharFileUri + ", residentialFile=" + residentialFile + ", residentialFileUri="
+				+ residentialFileUri + ", parkingPhoto=" + parkingPhoto + ", parkingPhotoUri=" + parkingPhotoUri + "]";
 	}
+	
 	
 }

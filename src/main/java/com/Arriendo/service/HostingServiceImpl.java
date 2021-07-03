@@ -194,4 +194,9 @@ public class HostingServiceImpl implements HostingService {
 		javaMailSender.send(mail2);
 		logger.info(String.format("Mail successfully send to client '%s' .",clientMail));
 	}
+
+	@Override
+	public void updateVerification(Hosting hosting) {
+		repository.save(hosting);
+	}
 }
